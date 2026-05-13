@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GROUPEMENT FORESTIER KERSYLVA operations app for local staff directory, expenses, quality checks, and appointment booking.">
+  <meta name="theme-color" content="#0B2E22">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="manifest" href="manifest.json">
+  <title>GROUPEMENT FORESTIER KERSYLVA</title>
+  <style>
+    :root {
+      --forest: #0b2e22;
+      --canopy: #37533b;
+      --moss: #74815a;
+      --gold: #c6b46d;
+      --paper: #f6f3e8;
+      --ink: #18231d;
+      --surface: #ffffff;
+      --line: rgba(11, 46, 34, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 16px clamp(18px, 4vw, 56px);
+      background: rgba(246, 243, 232, 0.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(16px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .brand img {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+    }
+
+    .hero {
+      min-height: 82vh;
+      display: grid;
+      align-items: end;
+      padding: clamp(24px, 6vw, 72px);
+      background:
+        linear-gradient(180deg, rgba(11, 46, 34, 0.10), rgba(11, 46, 34, 0.86)),
+        url("featured.png") center/cover;
+      color: #fff;
+    }
+
+    .hero-content {
+      max-width: 840px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--gold);
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 900px;
+      font-size: clamp(2.3rem, 6vw, 5.8rem);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .hero p {
+      max-width: 640px;
+      margin: 20px 0 0;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .button.primary {
+      color: var(--forest);
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    main {
+      padding: 42px clamp(18px, 4vw, 56px) 64px;
+    }
+
+    .section {
+      max-width: 1180px;
+      margin: 0 auto 46px;
+    }
+
+    .section h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.6rem, 3vw, 2.6rem);
+      letter-spacing: 0;
+    }
+
+    .section-intro {
+      max-width: 720px;
+      margin: 0 0 22px;
+      color: #4d5b50;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+    }
+
+    .panel h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+    }
+
+    .panel p {
+      margin: 0;
+      color: #516055;
+      font-size: 0.95rem;
+    }
+
+    .workflow {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+      font-weight: 700;
+    }
+
+    .list span {
+      color: var(--canopy);
+      font-weight: 800;
+    }
+
+    .contact {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: center;
+      background: var(--forest);
+      color: #fff;
+      border-radius: 8px;
+      padding: clamp(20px, 4vw, 34px);
+    }
+
+    .contact p {
+      margin: 8px 0 0;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    footer {
+      padding: 0 clamp(18px, 4vw, 56px) 28px;
+      color: #5d6a60;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 860px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .grid,
+      .workflow {
+        grid-template-columns: 1fr;
+      }
+
+      .contact {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="Primary">
+    <div class="brand">
+      <img src="favicon.png" alt="">
+      <span>GROUPEMENT FORESTIER KERSYLVA</span>
+    </div>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#privacy">Privacy</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-content">
+      <p class="eyebrow">Operations workspace</p>
+      <h1>GROUPEMENT FORESTIER KERSYLVA</h1>
+      <p>Coordinate daily staff, spend, quality control, and appointments from a focused Android app built for local business operations.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#features">Review app functions</a>
+        <a class="button" href="mailto:support@kersylva.fr">Contact support</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="features">
+      <h2>Operational tools in one place</h2>
+      <p class="section-intro">The Android app keeps routine coordination visible without accounts, cloud sync, analytics, advertising identifiers, or external service calls.</p>
+      <div class="grid">
+        <article class="panel">
+          <h3>Employee directory</h3>
+          <p>Find staff by role, location, and availability notes for fast daily coordination.</p>
+        </article>
+        <article class="panel">
+          <h3>Expense tracking</h3>
+          <p>Save fuel, tool, supplier, and travel costs to local app storage for review.</p>
+        </article>
+        <article class="panel">
+          <h3>Quality checklist</h3>
+          <p>Track site controls, due dates, priority, and completion status during field rounds.</p>
+        </article>
+        <article class="panel">
+          <h3>Appointment booking</h3>
+          <p>Book visitor and supplier slots with owner, purpose, date, and time.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section workflow" id="workflow">
+      <div>
+        <h2>Built for repeat daily review</h2>
+        <p class="section-intro">The interface starts with a concise dashboard, then moves into focused sections for people, expenses, quality, and agenda work.</p>
+        <ul class="list">
+          <li>Dashboard metrics <span>morning review</span></li>
+          <li>Directory cards <span>site coordination</span></li>
+          <li>Expense approval <span>finance handoff</span></li>
+          <li>Quality progress <span>field control</span></li>
+        </ul>
+      </div>
+      <div class="panel" id="privacy">
+        <h3>Local privacy model</h3>
+        <p>Records are stored on the phone using local app storage. The app does not require registration, does not upload operational records, and does not request Android permissions.</p>
+      </div>
+    </section>
+
+    <section class="section contact">
+      <div>
+        <h2>Support</h2>
+        <p>For app support or privacy questions, contact GROUPEMENT FORESTIER KERSYLVA.</p>
+      </div>
+      <a class="button primary" href="mailto:support@kersylva.fr">support@kersylva.fr</a>
+    </section>
+  </main>
+
+  <footer>
+    GROUPEMENT FORESTIER KERSYLVA. Android app records stay on device unless the user removes app data or uninstalls the app.
+  </footer>
+</body>
+</html>
