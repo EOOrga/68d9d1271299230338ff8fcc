@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "applications": {
+    "fr.kersylva.operations": {
+      "title": "GROUPEMENT FORESTIER KERSYLVA",
+      "short_description": "Coordinate staff, expenses, quality checks, and bookings in a local...",
+      "full_description": "GROUPEMENT FORESTIER KERSYLVA helps business teams keep daily operations organized from one Android app. Staff can review an employee directory, record expense lines, track quality checklist progress, and book visitor or supplier appointments.\n\nThe app is designed for repeated field and office review. Records are saved on the device using local app storage, with no account registration, cloud sync, analytics, advertising identifiers, or external service calls.",
+      "source_screenshots": [
+        "docs/screens/1.png",
+        "docs/screens/2.png",
+        "docs/screens/3.png"
+      ],
+      "generated_from": "existing repository listing metadata and README",
+      "generated_at": "2026-10-02T21:25:27.056530+00:00"
+    }
+  }
+}
