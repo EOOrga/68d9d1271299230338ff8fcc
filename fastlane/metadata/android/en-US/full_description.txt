@@ -1,0 +1,3 @@
+GROUPEMENT FORESTIER KERSYLVA helps business teams keep daily operations organized from one Android app. Staff can review an employee directory, record expense lines, track quality checklist progress, and book visitor or supplier appointments.
+
+The app is designed for repeated field and office review. Records are saved on the device using local app storage, with no account registration, cloud sync, analytics, advertising identifiers, or external service calls.

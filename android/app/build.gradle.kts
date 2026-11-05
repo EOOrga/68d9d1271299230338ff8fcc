@@ -29,7 +29,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "fr.kersylva.operations"
+        applicationId = "ho.kersylva.swaah"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
