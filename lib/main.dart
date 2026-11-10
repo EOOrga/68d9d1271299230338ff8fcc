@@ -474,7 +474,7 @@ class OverviewScreen extends StatelessWidget {
           ],
         ),
         SectionTitle(
-          title: 'Today focus',
+          title: 'GROUPEMENT FORESTIER KERSYLVA',
           actionLabel: 'Quality board',
           onAction: () => onOpenTab(3),
         ),

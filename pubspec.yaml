@@ -1,4 +1,4 @@
-name: kersylva_ops
+name: taraasah
 description: "Local operations workspace for GROUPEMENT FORESTIER KERSYLVA."
 publish_to: 'none'
 version: 1.0.0+1
@@ -26,5 +26,5 @@ flutter_launcher_icons:
   android: true
   ios: false
   image_path: docs/icon.png
-  adaptive_icon_background: "#253023"
+  adaptive_icon_background: "#853C00"
   adaptive_icon_foreground: docs/icon.png
